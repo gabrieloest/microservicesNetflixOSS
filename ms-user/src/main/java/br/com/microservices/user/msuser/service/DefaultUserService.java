@@ -2,11 +2,13 @@ package br.com.microservices.user.msuser.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import br.com.microservices.user.msuser.dataaccessobject.UserRepository;
 import br.com.microservices.user.msuser.domainobject.UserDO;
 import br.com.microservices.user.msuser.sender.Sender;
 
+@Service
 public class DefaultUserService implements UserService
 {
     private final UserRepository userRepository;
