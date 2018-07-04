@@ -6,3 +6,4 @@ spring:
           uri: https://github.com/gabrieloest/microservicesNetflixOSS
           search-paths:
             - "ms-config-properties/{application}/{profile}"
+            - "ms-config-properties/global/{profile}"

@@ -7,7 +7,6 @@ import br.com.microservices.user.msuser.domainobject.UserDO;
 
 public class Sender
 {
-
     @Autowired
     private KafkaTemplate<String, UserDO> kafkaTemplate;
 
