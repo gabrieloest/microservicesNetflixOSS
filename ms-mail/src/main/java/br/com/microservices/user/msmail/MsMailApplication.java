@@ -2,11 +2,15 @@ package br.com.microservices.user.msmail;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+@EnableEurekaClient
 @SpringBootApplication
-public class MsMailApplication {
+public class MsMailApplication
+{
 
-	public static void main(String[] args) {
-		SpringApplication.run(MsMailApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(MsMailApplication.class, args);
+    }
 }

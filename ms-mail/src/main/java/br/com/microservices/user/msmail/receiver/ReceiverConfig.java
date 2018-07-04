@@ -24,6 +24,9 @@ public class ReceiverConfig
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
+    @Value("${spring.kafka.consumer.group-id}")
+    private String consumerGroupId;
+
 
     @Bean
     public Map<String, Object> consumerConfigs()
@@ -32,7 +35,7 @@ public class ReceiverConfig
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "UserCreatedConsumer");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, this.consumerGroupId);
 
         return props;
     }
