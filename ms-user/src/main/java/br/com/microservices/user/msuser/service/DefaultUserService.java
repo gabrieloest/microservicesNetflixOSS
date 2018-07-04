@@ -2,27 +2,27 @@ package br.com.microservices.user.msuser.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import br.com.microservices.user.msuser.dataaccessobject.UserRepository;
 import br.com.microservices.user.msuser.domainobject.UserDO;
 import br.com.microservices.user.msuser.sender.Sender;
 
-@Service
+@Component
 public class DefaultUserService implements UserService
 {
-    private final UserRepository userRepository;
-
     @Value("${spring.kafka.topic.userCreated}")
     private static String USER_CREATED_TOPIC;
 
+    private final UserRepository userRepository;
     private Sender sender;
 
 
     @Autowired
-    public DefaultUserService(final UserRepository userRepository)
+    public DefaultUserService(final UserRepository userRepository, Sender sender)
     {
         this.userRepository = userRepository;
+        this.sender = sender;
     }
 
 
